@@ -4,41 +4,9 @@
 	justify-content: space-between;
 	height: 60px;
 
-	&__button {
-		display: inline-block;
-		height: auto;
-		padding: 0.8rem 2rem;
+	
+	&__option{
 		border: none;
-		border-radius: 16px;
-		font-weight: 500;
-		font-size: 1.6rem;
-		text-decoration: none;
-		text-transform: capitalize;
-		cursor: pointer;
-		overflow: hidden;
-		//&__select {
-			// color: var(--black-2);
-			// padding: 1rem;
-			// border: none;
-			// background-color: var(--bg-3);
-	
-			// width: 150px;
-			// cursor: pointer;
-		//}
-		&--add{
-			background-color: $primaryPurple;
-			color: white;
-		}
-
-		&--select{
-			background-color: $bg-3;
-			color: $black-1;
-
-			&:hover{
-				background-color: $gray-3;
-			}
-		}
 	}
-	
 }
 

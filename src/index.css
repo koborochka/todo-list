@@ -1,5 +1,4 @@
 /* sass --watch src/styles/index.scss src/index.css */
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 *, *::before, *::after {
   box-sizing: border-box;
@@ -53,10 +52,6 @@ body, html {
 }
 
 /*Basic style*/
-* {
-  border: 1px solid black;
-}
-
 html {
   font-size: 16px;
 }
@@ -116,46 +111,33 @@ h1 {
   justify-content: space-between;
   height: 60px;
 }
-.app_header__button {
-  display: inline-block;
-  height: auto;
-  padding: 0.8rem 2rem;
+.app_header__option {
   border: none;
-  border-radius: 16px;
-  font-weight: 500;
-  font-size: 1.6rem;
-  text-decoration: none;
-  text-transform: capitalize;
-  cursor: pointer;
-  overflow: hidden;
-}
-.app_header__button--add {
-  background-color: #646ff0;
-  color: white;
-}
-.app_header__button--select {
-  background-color: #cccdde;
-  color: #646681;
-}
-.app_header__button--select:hover {
-  background-color: rgb(134, 134, 134);
 }
 
 .modal__dialog {
-  margin-top: 2rem;
   padding-top: 2.5rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 800px; /* Adjust the maximum width as needed */
   background-color: transparent;
-  border-radius: 8px;
+  border: none;
+}
+
+.modal__dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal__container {
-  position: relative;
-  border-radius: 12px;
   padding: 1rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  position: relative;
+  background-color: #ecedf6;
 }
 
 .modal__close-button {
@@ -165,6 +147,7 @@ h1 {
   transform: translateY(-100%);
   font-size: 1.5rem;
   border-radius: 4px;
+  border: none;
   background-color: #eee;
   color: #585858;
   display: flex;
@@ -178,22 +161,56 @@ h1 {
   color: white;
 }
 
-form {
+.modal__title {
+  color: #646681;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+}
+
+.modal__form {
   width: 100%;
 }
-form label {
+.modal__form .modal__label {
   font-size: 1.6rem;
-  color: var(--black-1);
+  color: #646681;
 }
-form label input,
-form label select {
+.modal__form .modal__label .modal__label-input,
+.modal__form .modal__label .modal__label-select {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   width: 100%;
   padding: 1rem;
   border: none;
-  background-color: var(--white);
+  background-color: white;
   font-size: 1.6rem;
+}
+
+.button {
+  display: inline-block;
+  height: auto;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  overflow: hidden;
+}
+.button--add {
+  background-color: #646ff0;
+  color: white;
+  margin-right: 1rem;
+}
+.button--select {
+  background-color: #cccdde;
+  color: #646681;
+}
+.button--select:hover {
+  background-color: #ebe3ec;
 }
 
 /*# sourceMappingURL=index.css.map */

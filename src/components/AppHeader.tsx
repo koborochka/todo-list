@@ -8,11 +8,11 @@ export default function AppHeader() {
 
   return (
     <div className="app_header">
-      <Button className="app_header__button app_header__button--add" onClick = {() => setIsModalOpen((prev) => !prev)}>Add task</Button>
-      <SelectButton className="app_header__button app_header__button--select" id='filter-status'>
-        <option value='all'>All</option>
-        <option value='incomplete'>Incomplete</option>
-        <option value='complete'>Complete</option>
+      <Button className="button button--add" onClick = {() => setIsModalOpen((prev) => !prev)}>Add task</Button>
+      <SelectButton className="button button--select" id='filter-status'>
+        <option className="app_header__option" value='all'>All</option>
+        <option className="app_header__option" value='incomplete'>Incomplete</option>
+        <option className="app_header__option" value='complete'>Complete</option>
       </SelectButton>
       <TodoModal {...{isModalOpen, setIsModalOpen}}/> 
     </div>
