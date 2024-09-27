@@ -1,0 +1,35 @@
+/*Basic style*/
+*{
+  border: 1px solid black;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: $main-bg-color;
+    
+  }
+  
+  .container {
+    @include min-max(320px, 100%);
+    
+  }
+  
+  .wrap {
+    @include min-max(320px, 1000px);
+  }
+  
+  p,
+  a,
+  button {
+    color: #000;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }

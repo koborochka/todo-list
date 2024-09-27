@@ -1,0 +1,62 @@
+.modal__dialog {
+    margin-top: 2rem;
+    padding-top: 2.5rem;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    max-width: 800px; /* Adjust the maximum width as needed */
+    background-color: transparent;
+    border-radius: 8px;
+    
+}
+
+.modal__container{
+    position: relative;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+
+.modal__close-button {
+    position: absolute;
+	top: -1rem;
+	right: 0;
+	transform: translateY(-100%);
+	font-size: 1.5rem;
+	
+	border-radius: 4px;
+	background-color: $gray-1;
+	color: $black-2;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	transition: 0.3s ease all;
+	&:hover {
+		background-color: #e32525;
+		color: white;
+	}
+}
+
+
+form {
+	width: 100%;
+	label {
+		font-size: 1.6rem;
+		color: var(--black-1);
+		input,
+		select {
+			margin-top: 0.5rem;
+			margin-bottom: 2rem;
+			width: 100%;
+			padding: 1rem;
+			border: none;
+			background-color: var(--white);
+			font-size: 1.6rem;
+		}
+	}
+}

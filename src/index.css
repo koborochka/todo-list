@@ -1,0 +1,199 @@
+/* sass --watch src/styles/index.scss src/index.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img, picture, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none;
+  }
+}
+body, html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/*Basic style*/
+* {
+  border: 1px solid black;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f8f8ff;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.wrap {
+  min-width: 320px;
+  max-width: 1000px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+p,
+a,
+button {
+  color: #000;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  display: inline-block;
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: #646681;
+}
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.app_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.app_header__button {
+  display: inline-block;
+  height: auto;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 16px;
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  overflow: hidden;
+}
+.app_header__button--add {
+  background-color: #646ff0;
+  color: white;
+}
+.app_header__button--select {
+  background-color: #cccdde;
+  color: #646681;
+}
+.app_header__button--select:hover {
+  background-color: rgb(134, 134, 134);
+}
+
+.modal__dialog {
+  margin-top: 2rem;
+  padding-top: 2.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px; /* Adjust the maximum width as needed */
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.modal__container {
+  position: relative;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  transform: translateY(-100%);
+  font-size: 1.5rem;
+  border-radius: 4px;
+  background-color: #eee;
+  color: #585858;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+.modal__close-button:hover {
+  background-color: #e32525;
+  color: white;
+}
+
+form {
+  width: 100%;
+}
+form label {
+  font-size: 1.6rem;
+  color: var(--black-1);
+}
+form label input,
+form label select {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: var(--white);
+  font-size: 1.6rem;
+}
+
+/*# sourceMappingURL=index.css.map */
