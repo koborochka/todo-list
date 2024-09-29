@@ -4,7 +4,7 @@ import SelectButton from "./SelectButton";
 import TodoModal from "./TodoModal";
 
 export default function AppHeader() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   return (
     <div className="app_header">
