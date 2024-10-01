@@ -39,9 +39,8 @@ export default function TodoItem({ todo }: {
 
     return (
         <>
-            <li className="todo-item">
+            <li className={`todo-item ${checked && "todo-item--completed"}`}>
                 <div className="todo-item__details-container">
-                    {/*<CheckButton checked={checked} handleCheck={handleCheck} /> //короткая запись???*/}
                     <Checkbox checked={checked} onChange={handleCheck} size="lg" />
                     <div className="todo-item__content">
                         <p className="todo-item__title">{todo.title}</p>

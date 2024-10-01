@@ -1,93 +1,75 @@
 @import '../_mixins.scss';
 
-
 .todo-item {
     display: flex;
     align-items: center;
-	justify-content: space-between;
-	
+    justify-content: space-between;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
     
-	padding: 1rem;
-	background: white;
-	
-	border-radius: 4px;
-}
-.todo-item__details-container {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	gap: 1rem;
-}
 
-.svgBox {
-	flex-basis: 25px;
-	flex-shrink: 0;
-	height: 25px;
-	border-radius: 2px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 5px;
-	cursor: pointer;
-	transition: 0.3s ease background-color;
-	&:hover {
-		background-color: var(--grey-2);
-	}
-	svg {
-		width: 100%;
-		height: 100%;
-		stroke: white;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-}
+    &--completed {
+        text-decoration: line-through;
+        opacity: 0.7;
+    }
 
-.todo-item__content {
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-    gap: 0.25rem;
-}
-.todo-item__title {
-	font-weight: 500;
-	font-size: 1.4rem;
-	color: $black-2;
+    &__details-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
 
-	&--completed {
-		text-decoration: line-through;
-		opacity: 0.7;
-	}
-}
-.todo-item__date {
-	display: block;
-	font-size: 1.2rem;
-	font-weight: 300;
-	margin-top: -0.2rem;
-	color: $black-2;
-}
-.todo-item__actions {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 1rem;
-    min-width: 7.38rem;
-}
-.todo-item__action-icon {
-	font-size: 2rem;
-	padding: 0.5rem;
-	border-radius: 4px;
-	background-color: $gray-1;
-	color: $black-2;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
+    &__content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        gap: 0.25rem;
+    }
+    
+    &__title {
+        font-weight: 500;
+        font-size: 1.4rem;
+        color: $black-2;
 
-    border: 2px solid gray; 
-	transition: 0.3s ease background-color;
-   
-	&:hover {
-		background-color: $gray-2;
-	}
+        @include smallDeviceSize {
+            font-size: 1.6rem; 
+          }
+    }
+
+    &__date {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-top: -0.2rem;
+        color: $black-2;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        min-width: 7.38rem;
+    }
+
+    &__action-icon {
+        font-size: 2rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+        background-color: $gray-1;
+        color: $black-2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 2px solid gray;
+        transition: 0.3s ease background-color;
+
+        &:hover {
+            background-color: $gray-2;
+        }
+    }
+    
 }

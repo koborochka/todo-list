@@ -7,6 +7,7 @@ import { addTodo, updateTodo } from '../slices/todoSlice';
 import { v4 as uuid } from 'uuid';
 import { format } from 'date-fns';
 import Todo from '../interfaces/Todo';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
     type: string
@@ -28,37 +29,44 @@ export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
         }
     }, [isModalOpen])
 
-    useEffect(() =>{
-        if(type==='update' && todo?.title){
+    useEffect(() => {
+        if (type === 'update' && todo?.title) {
             setTitle(todo.title)
             setStatus(todo.status)
         }
-    },[todo, type, isModalOpen])
+    }, [todo, type, isModalOpen])
 
 
-    const handleSubmit = (e:Event) => {
+    const handleSubmit = (e: Event) => {
         e.preventDefault();
-        if (type === 'add') {
-            if (title && status) {
-                dispatch(addTodo({
-                    id: uuid(),
-                    title,
-                    status,
-                    time: format(new Date(), 'p, MM/dd/yyyy'),
-                }))
-            }
-        } else{
-            if (title && status && todo) {
-                dispatch(updateTodo({
-                    id: todo.id,
-                    title,
-                    status,
-                    time: format(new Date(), 'p, MM/dd/yyyy'),
-                }))
-            }
+        if (title === '') {
+            toast.error('Please enter a title');
+            return;
         }
+        if (title && status) {
+            if (type === 'add') {
+                dispatch(
+                    addTodo({
+                        id: uuid(),
+                        title,
+                        status,
+                        time: format(new Date(), 'p, MM/dd/yyyy'),
+                    })
+                );
+                toast.success('Task added successfully');
+            }
+            if (type === 'update' && todo) {
+                if (todo.title !== title || todo.status !== status) {
+                    dispatch(updateTodo({ ...todo, title, status }));
+                    toast.success('Task Updated successfully');
+                } else {
+                    toast.error('No changes made');
+                    return;
+                }
+            }
 
-        setIsModalOpen(false);
+            setIsModalOpen(false);
+        }
     }
 
     const modalRoot = document.getElementById('modal');
