@@ -1,73 +1,67 @@
-.modal__dialog {
-    padding-top: 2.5rem;
-	justify-self: center;
-	align-self: center;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    
-    /*max-width: 800px; /* Adjust the maximum width as needed */
-	background-color: transparent;
-	border: none;
-}
+.modal {
+    &__dialog {
+        padding-top: 2.5rem;
+        justify-self: center;
+        align-self: center;
+        
+        background-color: transparent;
+        border: none;
+        
+        &::backdrop {
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+    }
 
-.modal__dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5); 
-}
+    &__container {
+        padding: 1rem;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        position: relative;
+        
+        background-color: $bg-2;
+    }
 
+    &__close-button {
+        position: absolute;
+        top: -1rem;
+        right: 0;
+        transform: translateY(-100%);
+        font-size: 1.5rem;
+        
+        border-radius: 4px;
+        border: none;
+        background-color: $gray-1;
+        color: $black-2;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        &:hover {
+            background-color: #e32525;
+            color: white;
+        }
+    }
 
-.modal__container{
-	padding: 1rem;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 8px;
-	position: relative;
+    &__title {
+        color: $black-1;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-transform: capitalize;
+    }
 
-	background-color: $bg-2;
-}
-
-
-.modal__close-button {
-    position: absolute;
-	top: -1rem;
-	right: 0;
-	transform: translateY(-100%);
-	font-size: 1.5rem;
-	
-	border-radius: 4px;
-	border: none;
-	background-color: $gray-1;
-	color: $black-2;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-
-	transition: 0.3s ease all;
-	&:hover {
-		background-color: #e32525;
-		color: white;
+    &__form {
+        width: 100%;
 	}
-}
-
-.modal__title {
-	color: $black-1;
-	font-size: 2rem;
-	font-weight: 600;
-	margin-bottom: 2rem;
-	text-transform: capitalize;
-}
-
-.modal__form {
-	width: 100%;
-	.modal__label {
+	&__label {
 		font-size: 1.6rem;
 		color: $black-1;
-		.modal__label-input,
-		.modal__label-select {
+		&-input,
+		&-select {
 			margin-top: 0.5rem;
 			margin-bottom: 2rem;
 			width: 100%;

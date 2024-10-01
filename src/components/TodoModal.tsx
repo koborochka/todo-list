@@ -3,32 +3,23 @@ import { createPortal } from 'react-dom';
 import { MdOutlineClose } from 'react-icons/md'
 import Button from './Button';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../slices/todoSlice';
+import { addTodo, updateTodo } from '../slices/todoSlice';
 import { v4 as uuid } from 'uuid';
 import { format } from 'date-fns';
+import Todo from '../interfaces/Todo';
 
-export default function TodoModal({ isModalOpen, setIsModalOpen }: {
-        isModalOpen: boolean;
-        setIsModalOpen: (isOpen: boolean) => void;
-    }) {
+export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
+    type: string
+    isModalOpen: boolean;
+    setIsModalOpen: (isOpen: boolean) => void;
+    todo?: Todo;
+}) {
 
-    const [title,setTitle] = useState<string>('')
+    const [title, setTitle] = useState<string>('')
     const [status, setStatus] = useState<string>('incomplete')
     const dialog = useRef<HTMLDialogElement | null>(null);
     const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if(title && status){
-            dispatch(addTodo({
-                id: uuid(),
-                title,
-                status,
-                time: format(new Date(), 'p, MM/dd/yyyy'),
-            }))
-        }   
-    }
-    
     useEffect(() => {
         if (isModalOpen) {
             dialog.current?.showModal()
@@ -37,9 +28,42 @@ export default function TodoModal({ isModalOpen, setIsModalOpen }: {
         }
     }, [isModalOpen])
 
+    useEffect(() =>{
+        if(type==='update' && todo?.title){
+            setTitle(todo.title)
+            setStatus(todo.status)
+        }
+    },[todo, type, isModalOpen])
+
+
+    const handleSubmit = (e:Event) => {
+        e.preventDefault();
+        if (type === 'add') {
+            if (title && status) {
+                dispatch(addTodo({
+                    id: uuid(),
+                    title,
+                    status,
+                    time: format(new Date(), 'p, MM/dd/yyyy'),
+                }))
+            }
+        } else{
+            if (title && status && todo) {
+                dispatch(updateTodo({
+                    id: todo.id,
+                    title,
+                    status,
+                    time: format(new Date(), 'p, MM/dd/yyyy'),
+                }))
+            }
+        }
+
+        setIsModalOpen(false);
+    }
+
     const modalRoot = document.getElementById('modal');
     if (!modalRoot) {
-        return null; 
+        return null;
     }
 
     return createPortal(
@@ -50,11 +74,11 @@ export default function TodoModal({ isModalOpen, setIsModalOpen }: {
                         <MdOutlineClose />
                     </button>
 
-                    <form className='modal__form' onSubmit = {(e) => handleSubmit(e)}>
-                        <h2 className='modal__title'>Add task</h2>
+                    <form className='modal__form' onSubmit={(e) => handleSubmit(e)}>
+                        <h2 className='modal__title'>{type === 'add' ? 'Add' : 'Update'} task</h2>
                         <label className='modal__label' htmlFor="title">
                             Title
-                            <input className='modal__label-input' type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                            <input className='modal__label-input' type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
                         </label>
 
                         <label className='modal__label' htmlFor="status">
@@ -65,8 +89,8 @@ export default function TodoModal({ isModalOpen, setIsModalOpen }: {
                             </select>
                         </label>
 
-                        <Button className="button button--add" type="submit">Add task</Button>
-                        <Button className="button button--select" onClick={() => { setIsModalOpen(false) }}>Cancel</Button>
+                        <Button className="button button--add" type="submit">{type === 'add' ? 'Add' : 'Update'} task</Button>
+                        <Button className="button button--select" type="button" onClick={() => { setIsModalOpen(false) }}>Cancel</Button>
 
                     </form>
                 </div>

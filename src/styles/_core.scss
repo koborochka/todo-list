@@ -3,6 +3,10 @@
 
 html {
 	font-size: 16px;
+
+  @include smallDeviceSize {
+    font-size: 12px; // Этот стиль будет применен только на экранах шириной до 768px
+  }
 }
 
 body {

@@ -10,6 +10,8 @@
     text-transform: capitalize;
     cursor: pointer;
     overflow: hidden;
+    
+    transition: 0.3s ease all;
     //&__select {
         // color: var(--black-2);
         // padding: 1rem;
@@ -31,6 +33,10 @@
 
         &:hover{
             background-color: $bg-4;
+        }
+
+        &:active{
+            border: 2px solid gray;
         }
     }
 }

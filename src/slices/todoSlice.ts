@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface Todo {
-  id: string;
-  title: string;
-  status: string;
-  time: string;
-}
+import Todo from '../interfaces/Todo';
 
 interface TodoState {
   filterStatus: string;
