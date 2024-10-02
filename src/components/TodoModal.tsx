@@ -7,7 +7,7 @@ import { addTodo, updateTodo } from '../slices/todoSlice';
 import { v4 as uuid } from 'uuid';
 import { format } from 'date-fns';
 import Todo from '../interfaces/Todo';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
     type: string
@@ -37,7 +37,7 @@ export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
     }, [todo, type, isModalOpen])
 
 
-    const handleSubmit = (e: Event) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (title === '') {
             toast.error('Please enter a title');
@@ -54,11 +54,12 @@ export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
                     })
                 );
                 toast.success('Task added successfully');
+                setTitle('');
             }
             if (type === 'update' && todo) {
                 if (todo.title !== title || todo.status !== status) {
                     dispatch(updateTodo({ ...todo, title, status }));
-                    toast.success('Task Updated successfully');
+                    toast.success('Task updated successfully');
                 } else {
                     toast.error('No changes made');
                     return;

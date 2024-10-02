@@ -121,7 +121,7 @@ h1 {
 }
 
 .modal__dialog {
-  padding-top: 2.5rem;
+  padding-top: 3rem;
   justify-self: center;
   align-self: center;
   background-color: transparent;
@@ -145,7 +145,7 @@ h1 {
   top: -1rem;
   right: 0;
   transform: translateY(-100%);
-  font-size: 1.5rem;
+  font-size: 2rem;
   border-radius: 4px;
   border: none;
   background-color: #eee;

@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import { useDispatch } from "react-redux";
 import { deleteTodo, updateTodo } from "../slices/todoSlice";
 import TodoModal from "./TodoModal";
+import toast from "react-hot-toast";
 
 export default function TodoItem({ todo }: {
     todo: Todo,
@@ -24,6 +25,7 @@ export default function TodoItem({ todo }: {
 
     const handleDelete = () => {
         dispatch(deleteTodo(todo.id))
+        toast.success('Todo deleted successfully')
     }
 
     const handleUpdate = () => {
