@@ -79,7 +79,10 @@ export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
         <>
             <dialog className='modal__dialog' ref={dialog}>
                 <div className='modal__container'>
-                    <button className='modal__close-button' onClick={() => setIsModalOpen(false)}>
+                    <button className='modal__close-button' onClick={() => {
+                        setIsModalOpen(false)
+                        setTitle('')
+                        }}>
                         <MdOutlineClose />
                     </button>
 
@@ -87,7 +90,7 @@ export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
                         <h2 className='modal__title'>{type === 'add' ? 'Add' : 'Update'} task</h2>
                         <label className='modal__label' htmlFor="title">
                             Title
-                            <input className='modal__label-input' type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                            <input className='modal__label-input' type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Type in here…" />
                         </label>
 
                         <label className='modal__label' htmlFor="status">
@@ -99,7 +102,10 @@ export default function TodoModal({ type, isModalOpen, setIsModalOpen, todo }: {
                         </label>
 
                         <Button className="button button--add" type="submit">{type === 'add' ? 'Add' : 'Update'} task</Button>
-                        <Button className="button button--select" type="button" onClick={() => { setIsModalOpen(false) }}>Cancel</Button>
+                        <Button className="button button--select" type="button" onClick={() => { 
+                            setIsModalOpen(false)
+                            setTitle('')
+                         }}>Cancel</Button>
 
                     </form>
                 </div>

@@ -25,6 +25,14 @@
         background-color: $primaryPurple;
         color: white;
         margin-right: 1rem;
+
+        &:hover{
+            background-color: #5688BD;
+        }
+
+       
+
+        
     }
 
     &--select{
@@ -35,8 +43,9 @@
             background-color: $bg-4;
         }
 
-        &:active{
-            border: 2px solid gray;
+        &:focus {
+            border: none; /* Убирает границу при фокусе */
+            box-shadow: none; /* Убирает тень при фокусе */
         }
     }
 }
