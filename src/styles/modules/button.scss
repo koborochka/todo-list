@@ -1,0 +1,51 @@
+.button {
+    display: inline-block;
+    height: auto;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    overflow: hidden;
+    
+    transition: 0.3s ease all;
+    //&__select {
+        // color: var(--black-2);
+        // padding: 1rem;
+        // border: none;
+        // background-color: var(--bg-3);
+
+        // width: 150px;
+        // cursor: pointer;
+    //}
+    &--add{
+        background-color: $primaryPurple;
+        color: white;
+        margin-right: 1rem;
+
+        &:hover{
+            background-color: #5688BD;
+        }
+
+       
+
+        
+    }
+
+    &--select{
+        background-color: $bg-3;
+        color: $black-1;
+
+        &:hover{
+            background-color: $bg-4;
+        }
+
+        &:focus {
+            border: none; /* Убирает границу при фокусе */
+            box-shadow: none; /* Убирает тень при фокусе */
+        }
+    }
+}

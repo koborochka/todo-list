@@ -1,0 +1,16 @@
+h1{
+	display: inline-block;
+	width: 100%;
+	
+	font-size: 4rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 2rem;
+	margin-bottom: 1.5rem;
+	color: $black-1;
+	@include smallDeviceSize {
+		font-size: 3rem;
+	}
+}

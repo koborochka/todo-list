@@ -1,0 +1,16 @@
+.app-content{
+    margin-top: 1rem;
+    background-color: $bg-2;
+    padding: 2rem;
+	border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &__empty-list{
+        align-self: center;
+        font-size: 2rem;
+        color: $black-2;
+    }
+}

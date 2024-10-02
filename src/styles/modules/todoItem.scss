@@ -1,0 +1,75 @@
+@import '../_mixins.scss';
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    
+
+    &--completed {
+        text-decoration: line-through;
+        opacity: 0.7;
+    }
+
+    &__details-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        gap: 0.25rem;
+    }
+    
+    &__title {
+        font-weight: 500;
+        font-size: 1.4rem;
+        color: $black-2;
+
+        @include smallDeviceSize {
+            font-size: 1.6rem; 
+          }
+    }
+
+    &__date {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-top: -0.2rem;
+        color: $black-2;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        min-width: 7.38rem;
+    }
+
+    &__action-icon {
+        font-size: 2rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+        background-color: $gray-1;
+        color: $black-2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 2px solid gray;
+        transition: 0.3s ease background-color;
+
+        &:hover {
+            background-color: $gray-2;
+        }
+    }
+    
+}

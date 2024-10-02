@@ -1,0 +1,37 @@
+/*Basic style*/
+
+
+html {
+	font-size: 16px;
+
+  @include smallDeviceSize {
+    font-size: 12px; // Этот стиль будет применен только на экранах шириной до 768px
+  }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: $main-bg-color;
+    
+  }
+  
+  .container {
+    @include min-max(320px, 100%);
+    
+  }
+  
+  .wrap {
+    @include min-max(320px, 1000px);
+  }
+  
+  p,
+  a,
+  button {
+    color: #000;
+  }
+  
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
